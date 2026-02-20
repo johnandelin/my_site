@@ -11,14 +11,14 @@
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "I am a Statistics student at Brigham Young University with an emphasis in applied statistics and analytics. I am interested in using data to solve real-world problems, particularly in health, public safety, and scientific research contexts. I enjoy building statistical models, designing reproducible workflows, and translating complex analyses into clear, actionable insights.\nThrough coursework, research, and professional experience, I have developed a strong foundation in statistical modeling, machine learning, and data science tools across R and Python ecosystems."
+    "text": "I am a Statistics student at Brigham Young University with an emphasis in Data Science. I am interested in using data to solve real-world problems, particularly in health, and public safety. Before Statistics I was studying microbiology and was involvd in research.\nThrough coursework, research, and personal projects, I have developed a strong foundation in statistical modeling, machine learning, and data science tools across R and Python ecosystems."
   },
   {
     "objectID": "about.html#brigham-young-university-provo-ut",
     "href": "about.html#brigham-young-university-provo-ut",
     "title": "About Me",
     "section": "Brigham Young University — Provo, UT",
-    "text": "Brigham Young University — Provo, UT\nBachelor of Science in Statistics (Applied Statistics & Analytics)\nExpected Graduation: April 2027\nGPA: 3.4\nRelevant Coursework\n\nAnalysis of Variance\n\nProbability & Statistical Inference\n\nLinear Regression Modeling\n\nPredictive Analytics & Machine Learning\n\nData Visualization (Tableau)\n\nData Science Ecosystems (SQL, Python, Linux, AWS)\n\nCalculus and Linear Algebra\n\nData Structures (C++)\n\nInvolvement\n\nMember, Statistics Club\n\nStatistics Department Teaching Assistant"
+    "text": "Brigham Young University — Provo, UT\nBachelor of Science in Statistics (Data Science)\nExpected Graduation: April 2027\nGPA: 3.4\nRelevant Coursework\n\nAnalysis of Variance\n\nProbability & Statistical Inference\n\nLinear Regression Modeling\n\nPredictive Analytics & Machine Learning\n\nData Visualization (Tableau)\n\nData Science Ecosystems (SQL, Python, Linux, AWS)\n\nCalculus and Linear Algebra\nIntroduction to Computer Science (python)\nData Structures (C++)\n\nInvolvement\n\nMember, Statistics Club\n\nStatistics Department Teaching Assistant"
   },
   {
     "objectID": "about.html#statistics-department-teaching-assistant",
@@ -49,11 +49,18 @@
     "text": "Fabric Shrinkage Analysis\n\nCollected and analyzed experimental data across washing and drying cycles\n\nApplied ANOVA and ANCOVA techniques in R\n\nProduced data visualizations and statistical summaries"
   },
   {
-    "objectID": "about.html#forest-cover-prediction",
-    "href": "about.html#forest-cover-prediction",
+    "objectID": "about.html#kaggle-forest-cover-prediction",
+    "href": "about.html#kaggle-forest-cover-prediction",
     "title": "About Me",
-    "section": "Forest Cover Prediction",
-    "text": "Forest Cover Prediction\n\nBuilt a machine learning pipeline in R to predict forest cover types\n\nPerformed feature engineering, preprocessing, and normalization\n\nDeveloped and ensembled XGBoost, LightGBM, and Random Forest models\n\nAchieved strong predictive performance on held-out test data"
+    "section": "Kaggle Forest Cover Prediction",
+    "text": "Kaggle Forest Cover Prediction\n\nBuilt a machine learning pipeline in R to predict forest cover types\n\nPerformed feature engineering, preprocessing, and normalization\n\nDeveloped and ensembled XGBoost, LightGBM, and Random Forest models\n\nAchieved strong predictive performance on held-out test data"
+  },
+  {
+    "objectID": "about.html#yersina-ruckeri-pathogenesis-research",
+    "href": "about.html#yersina-ruckeri-pathogenesis-research",
+    "title": "About Me",
+    "section": "Yersina ruckeri Pathogenesis Research",
+    "text": "Yersina ruckeri Pathogenesis Research\n\nAwarded an undergraduate award to research Y. ruckeri Pathogenesis.\nStudied and ran tests on whether the cdsAB operon and I-Cysteine uptake systems relate to pathogenesis\nLearned Microbiology lab techniques."
   },
   {
     "objectID": "about.html#programming",
