@@ -9,8 +9,92 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Me",
     "section": "",
-    "text": "About this site"
+    "text": "I am a Statistics student at Brigham Young University with an emphasis in applied statistics and analytics. I am interested in using data to solve real-world problems, particularly in health, public safety, and scientific research contexts. I enjoy building statistical models, designing reproducible workflows, and translating complex analyses into clear, actionable insights.\nThrough coursework, research, and professional experience, I have developed a strong foundation in statistical modeling, machine learning, and data science tools across R and Python ecosystems."
+  },
+  {
+    "objectID": "about.html#brigham-young-university-provo-ut",
+    "href": "about.html#brigham-young-university-provo-ut",
+    "title": "About Me",
+    "section": "Brigham Young University — Provo, UT",
+    "text": "Brigham Young University — Provo, UT\nBachelor of Science in Statistics (Applied Statistics & Analytics)\nExpected Graduation: April 2027\nGPA: 3.4\nRelevant Coursework - Analysis of Variance\n- Probability & Statistical Inference\n- Linear Regression Modeling\n- Predictive Analytics & Machine Learning\n- Data Visualization (Tableau)\n- Data Science Ecosystems (SQL, Python, Linux, AWS)\n- Calculus and Linear Algebra\n- Data Structures (C++)\nInvolvement - Member, Statistics Club\n- Statistics Department Teaching Assistant"
+  },
+  {
+    "objectID": "about.html#statistics-department-teaching-assistant",
+    "href": "about.html#statistics-department-teaching-assistant",
+    "title": "About Me",
+    "section": "Statistics Department — Teaching Assistant",
+    "text": "Statistics Department — Teaching Assistant\nBrigham Young University | Jan 2025 – Present\n\nAssist students with probability, statistical modeling, and programming in R and Python\n\nProvide one-on-one conceptual and coding support\n\nSupport course logistics using Canvas and BYU Learning Suite\n\nStrengthened communication skills through technical instruction"
+  },
+  {
+    "objectID": "about.html#risk-management-department-technician",
+    "href": "about.html#risk-management-department-technician",
+    "title": "About Me",
+    "section": "Risk Management Department — Technician",
+    "text": "Risk Management Department — Technician\nBrigham Young University | Aug 2024 – Dec 2024\n\nInspected university laboratories for OSHA compliance\n\nConducted HAZCAT testing on unknown substances\n\nMaintained detailed safety and compliance records\n\nDemonstrated strong attention to detail and data accuracy"
+  },
+  {
+    "objectID": "about.html#summit-nutritional-laboratories-physical-chemistry-qc-technician",
+    "href": "about.html#summit-nutritional-laboratories-physical-chemistry-qc-technician",
+    "title": "About Me",
+    "section": "Summit Nutritional Laboratories — Physical Chemistry QC Technician",
+    "text": "Summit Nutritional Laboratories — Physical Chemistry QC Technician\nSpanish Fork, UT | Dec 2022 – Sep 2023\n\nPerformed quality control testing on nutraceutical products\n\nPrepared samples for inductively coupled plasma (ICP) analysis\n\nFollowed strict laboratory protocols and documentation standards"
+  },
+  {
+    "objectID": "about.html#fabric-shrinkage-analysis",
+    "href": "about.html#fabric-shrinkage-analysis",
+    "title": "About Me",
+    "section": "Fabric Shrinkage Analysis",
+    "text": "Fabric Shrinkage Analysis\n\nCollected and analyzed experimental data across washing and drying cycles\n\nApplied ANOVA and ANCOVA techniques in R\n\nProduced data visualizations and statistical summaries"
+  },
+  {
+    "objectID": "about.html#forest-cover-prediction",
+    "href": "about.html#forest-cover-prediction",
+    "title": "About Me",
+    "section": "Forest Cover Prediction",
+    "text": "Forest Cover Prediction\n\nBuilt a machine learning pipeline in R to predict forest cover types\n\nPerformed feature engineering, preprocessing, and normalization\n\nDeveloped and ensembled XGBoost, LightGBM, and Random Forest models\n\nAchieved strong predictive performance on held-out test data"
+  },
+  {
+    "objectID": "about.html#programming",
+    "href": "about.html#programming",
+    "title": "About Me",
+    "section": "Programming",
+    "text": "Programming\nR, Python, SQL, Linux, C++"
+  },
+  {
+    "objectID": "about.html#data-visualization",
+    "href": "about.html#data-visualization",
+    "title": "About Me",
+    "section": "Data Visualization",
+    "text": "Data Visualization\nTableau, ggplot2, Matplotlib"
+  },
+  {
+    "objectID": "about.html#statistical-methods",
+    "href": "about.html#statistical-methods",
+    "title": "About Me",
+    "section": "Statistical Methods",
+    "text": "Statistical Methods\nANOVA, ANCOVA, Linear Regression, Hypothesis Testing, Predictive Modeling"
+  },
+  {
+    "objectID": "about.html#machine-learning",
+    "href": "about.html#machine-learning",
+    "title": "About Me",
+    "section": "Machine Learning",
+    "text": "Machine Learning\nFeature engineering, ensemble methods, text and time-series modeling"
+  },
+  {
+    "objectID": "about.html#laboratory-scientific-skills",
+    "href": "about.html#laboratory-scientific-skills",
+    "title": "About Me",
+    "section": "Laboratory & Scientific Skills",
+    "text": "Laboratory & Scientific Skills\nAseptic techniques, PCR, microbial analysis, scientific data management"
+  },
+  {
+    "objectID": "about.html#professional-skills",
+    "href": "about.html#professional-skills",
+    "title": "About Me",
+    "section": "Professional Skills",
+    "text": "Professional Skills\nTechnical communication, teamwork, analytical thinking, problem-solving"
   }
 ]
