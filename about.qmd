@@ -1,5 +1,94 @@
 ---
-title: "About"
+title: "About Me"
 ---
 
-About this site
+# Introduction
+
+I am a Statistics student at Brigham Young University with an emphasis in applied statistics and analytics. I am interested in using data to solve real-world problems, particularly in health, public safety, and scientific research contexts. I enjoy building statistical models, designing reproducible workflows, and translating complex analyses into clear, actionable insights.
+
+Through coursework, research, and professional experience, I have developed a strong foundation in statistical modeling, machine learning, and data science tools across R and Python ecosystems.
+
+# Education
+
+## Brigham Young University — Provo, UT  
+Bachelor of Science in Statistics (Applied Statistics & Analytics)  
+Expected Graduation: April 2027  
+GPA: 3.4  
+
+**Relevant Coursework**
+- Analysis of Variance  
+- Probability & Statistical Inference  
+- Linear Regression Modeling  
+- Predictive Analytics & Machine Learning  
+- Data Visualization (Tableau)  
+- Data Science Ecosystems (SQL, Python, Linux, AWS)  
+- Calculus and Linear Algebra  
+- Data Structures (C++)
+
+**Involvement**
+- Member, Statistics Club  
+- Statistics Department Teaching Assistant  
+
+# Experience
+
+## Statistics Department — Teaching Assistant  
+Brigham Young University | Jan 2025 – Present  
+
+- Assist students with probability, statistical modeling, and programming in R and Python  
+- Provide one-on-one conceptual and coding support  
+- Support course logistics using Canvas and BYU Learning Suite  
+- Strengthened communication skills through technical instruction  
+
+## Risk Management Department — Technician  
+Brigham Young University | Aug 2024 – Dec 2024  
+
+- Inspected university laboratories for OSHA compliance  
+- Conducted HAZCAT testing on unknown substances  
+- Maintained detailed safety and compliance records  
+- Demonstrated strong attention to detail and data accuracy  
+
+## Summit Nutritional Laboratories — Physical Chemistry QC Technician  
+Spanish Fork, UT | Dec 2022 – Sep 2023  
+
+- Performed quality control testing on nutraceutical products  
+- Prepared samples for inductively coupled plasma (ICP) analysis  
+- Followed strict laboratory protocols and documentation standards  
+
+# Research & Projects
+
+## Fabric Shrinkage Analysis  
+- Collected and analyzed experimental data across washing and drying cycles  
+- Applied ANOVA and ANCOVA techniques in R  
+- Produced data visualizations and statistical summaries  
+
+## Forest Cover Prediction  
+- Built a machine learning pipeline in R to predict forest cover types  
+- Performed feature engineering, preprocessing, and normalization  
+- Developed and ensembled XGBoost, LightGBM, and Random Forest models  
+- Achieved strong predictive performance on held-out test data  
+
+# Skills
+
+## Programming
+R, Python, SQL, Linux, C++
+
+## Data Visualization
+Tableau, ggplot2, Matplotlib
+
+## Statistical Methods
+ANOVA, ANCOVA, Linear Regression, Hypothesis Testing, Predictive Modeling
+
+## Machine Learning
+Feature engineering, ensemble methods, text and time-series modeling
+
+## Laboratory & Scientific Skills
+Aseptic techniques, PCR, microbial analysis, scientific data management
+
+## Professional Skills
+Technical communication, teamwork, analytical thinking, problem-solving
+
+# Get to Know Me
+
+Outside of statistics, I enjoy learning about emerging technologies, scientific research, and problem-solving challenges. I value disciplined thinking, continuous learning, and applying quantitative tools to meaningful problems. I am particularly interested in roles that combine rigorous analysis with real-world impact.
+
+![Professional headshot of John Andelin, BYU Statistics student](images/headshot.jpg)
