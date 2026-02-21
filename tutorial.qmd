@@ -156,7 +156,7 @@ model = RF_search.fit(X_train, y_train)
 
 This sets up a `RandomizedSearchCV` object called `RF_search` to tune the Random Forest pipeline. It tries **5 random combinations** of the hyperparameters defined in `param_dist`, using **5-fold cross-validation** to evaluate each combination. The model is scored using negative mean squared error (`neg_mean_squared_error`), runs in parallel on 1 CPU cores (`n_jobs=1`), and uses a fixed `random_state=42`. Finally, `RF_search.fit(X_train, y_train)` trains the model on the training data and finds the best hyperparameter combination.
 
-Step 5: Make Predictions and Evaluate
+# Step 5: Make Predictions and Evaluate
 
 Random Forests make predictions by combining the outputs of many individual decision trees. For regression, each tree predicts a value for a given input, and the Random Forest averages all the tree predictions to produce the final output. This ensemble approach reduces overfitting and improves prediction stability compared to a single decision tree.
 
