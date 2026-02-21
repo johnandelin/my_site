@@ -1,0 +1,208 @@
+---
+title: Random Forest Tutorial
+---
+
+# Introduction
+
+Random Forests are a **powerful ensemble machine learning algorithm** for regression and classification. They combine many decision trees to produce stable predictions and automatically handle **feature interactions** and **non-normal target distributions**.
+
+In this tutorial, we will predict **the number of days patients are sick** using a simulated dataset with **5 predictors**:
+
+-   `age` (numeric)\
+-   `symptom_severity` (numeric, 1–10)\
+-   `treatment_type` (categorical, A/B/C)\
+-   `pre_existing_condition` (categorical: none/mild/severe)\
+-   `exercise_level` (numeric, hours per week)
+
+We will go over how to:
+
+1.  Simulate a data set.\
+2.  Build a Random Forest regression pipeline.\
+3.  Perform **cross-validation** and hyperparameter tuning.\
+4.  Make predictions and evaluate model performance.
+
+Random Forests can be a strong choice with health data because **health outcomes often have interactions** (e.g., age × pre-existing condition) and the number of days sick may not follow a normal distribution.
+
+------------------------------------------------------------------------
+
+# Step 1: Import Packages and simulating data
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split, RandomizedSearchCV
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.pipeline import Pipeline
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OrdinalEncoder
+from scipy.stats import randint
+```
+
+In this script, we will be using multiple packages from scikit-learn. The scikit-learn modules provide tools for machine learning workflows. here is what they do:
+
+-   `matplotlib.pyplot` – Creates visualizations like scatter plots, line plots, and histograms to explore data and show results.
+-   `train_test_split` – Splits data into training and testing sets for model evaluation.
+-   `RandomizedSearchCV` – Efficiently tests many combinations of hyperparameters to find the best model settings.
+-   `mean_squared_error`, `mean_absolute_error`, `r2_score` – Metrics for evaluating regression model performance.
+-   `Pipeline` – Chains preprocessing steps and model fitting into a single, repeatable workflow.
+-   `RandomForestRegressor` – Implements the random forest algorithm for regression tasks using an ensemble of decision trees.
+-   `ColumnTransformer` – Applies different preprocessing steps to different columns in a dataset.
+-   `OrdinalEncoder` – Converts categorical variables into integer codes suitable for machine learning models.
+-   `scipy.stats.randint` – Generates random integers, often for specifying hyperparameter ranges in randomized search.
+
+## Simulate dataset
+
+```{python}
+np.random.seed(42)
+n = 2000
+df = pd.DataFrame({
+    "age": np.random.randint(20, 80, n),
+    "symptom_severity": np.random.randint(1, 11, n),
+    "treatment_type": np.random.choice(["A","B","C"], n),
+    "pre_existing_condition": np.random.choice(["none","mild","severe"], n),
+    "exercise_level": np.random.randint(0, 8, n)  # hours per week
+})
+
+df["days_sick"] = (2 + 0.3*df["age"]/10 + 1.5*df["symptom_severity"]
+                   - 0.2*df["exercise_level"]
+                   + df["treatment_type"].map({"A":0,"B":-1,"C":1})
+                   + df["pre_existing_condition"].map({"none":0,"mild":1,"severe":3})
+                   + np.random.randn(n)*2)
+
+df.head()
+```
+
+This code is creating a simulated dataset with 2000 patients. It generates random values for age, symptom severity, treatment type, pre-existing conditions, and weekly exercise hours. Then it calculates a synthetic outcome, `days_sick`, as a combination of these factors plus some random noise, simulating how different variables might influence recovery time. This allows the target (`days_sick`) to increases with age, symptom severity, and worse pre-existing conditions, and decreases with exercise. Random noise simulates real-world variability.
+
+# Step 2: Splitting the data.
+
+We split the dataset into training and test sets using an **80/20 split**: 80% of the data is used to train the model, and 20% is held out to evaluate how well the model generalizes to new patients. This random split ensures that our performance metrics reflect **realistic predictive ability** rather than just memorizing the training data. In Python, this is done using the `train_test_split()` function from `sklearn.model_selection`.
+
+```{python}
+X = df.drop(columns=["days_sick"])
+y = df["days_sick"]
+
+# 80% training, 20% testing
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+```
+
+We use `train_test_split()` to randomly split the dataset into training and test sets. `test_size=0.2` sets aside 20% of the data for testing and 80% for training. `random_state=42` ensures the split is reproducible, so the same data is selected each time.
+
+# Step 3: Preprocessing Pipeline
+
+We encode the categorical features (`treatment_type` and `pre_existing_condition`) so that the Random Forest model can process them as numeric values. Numeric features like `age`, `symptom_severity`, and `exercise_level` are left unchanged because Random Forests can handle numeric inputs directly. Encoding is done using the `OrdinalEncoder()` from `sklearn.preprocessing` within a `ColumnTransformer()`.
+
+```{python}
+cat_cols = ["treatment_type", "pre_existing_condition"]
+
+RF_preprocessor = ColumnTransformer(
+    transformers=[("cat", OrdinalEncoder(), cat_cols)],
+    remainder="passthrough"
+)
+```
+
+We first specify the categorical columns with `cat_cols = ["treatment_type", "pre_existing_condition"]`. The `ColumnTransformer` applies `OrdinalEncoder()` to these columns, converting categories into numeric codes. The `remainder="passthrough"` argument keeps all other numeric features unchanged so they can be used directly by the Random Forest model.
+
+# Step 4: Build Random Forest Pipeline and Hyperparameter Tuning
+
+## Building the pipeline
+
+Pipelines are useful because they **combine preprocessing and modeling steps into a single workflow**, making the code cleaner and easier to manage. They ensure that the same transformations are applied consistently to training and test data. Pipelines also make it easy to integrate with tools like `RandomizedSearchCV` for hyperparameter tuning without manually repeating steps.
+
+```{python}
+RF_pipeline = Pipeline([
+    ("preprocess", RF_preprocessor),
+    ("model", RandomForestRegressor(n_estimators=500, random_state=42))
+])
+```
+
+This creates `RF_pipeline` with two steps. First, `"preprocess"` applies `RF_preprocessor` to encode categorical features while keeping numeric features unchanged. Then, `"model"` fits a `RandomForestRegressor` with 500 trees. The `n_estimators=500` sets the number of trees, where more trees can improve accuracy but take longer to compute, and `random_state=42` ensures the randomness in building the trees is reproducible so you get the same results each time.
+
+## Hyperparameter Tuning
+
+Tuning is important because the performance of a Random Forest depends on its hyperparameters, like the number of trees, tree depth, and minimum samples per leaf. Choosing the right values helps the model **fit the data well without overfitting or underfitting**. Using tools like `RandomizedSearchCV` with cross-validation allows us to systematically find hyperparameters that give the best predictive performance on new data.
+
+```{python}
+param_dist = {
+    "model__n_estimators": randint(300,700),
+    "model__max_depth": randint(5,20),
+    "model__min_samples_split": randint(2,10),
+    "model__min_samples_leaf": randint(1,5),
+    "model__max_features": ["sqrt","log2",None]
+}
+```
+
+This defines a dictionary `param_dist` specifying the range of hyperparameters to try when tuning the Random Forest model. Each key corresponds to a model parameter: `n_estimators` sets the number of trees, `max_depth` limits tree depth, `min_samples_split` and `min_samples_leaf` control how nodes are split, and `max_features` determines how many features are considered at each split. The `randint` function specifies a range of integer values to sample during randomized search, while `max_features` uses a fixed set of options.
+
+Cross-validation is a technique used to evaluate how well a model generalizes to new data. It splits the training data into multiple folds, trains the model on some folds, and validates it on the remaining fold, repeating this process across all folds. This helps ensure that the hyperparameters we choose and the model we train perform well on unseen data, reducing the risk of overfitting.
+
+```{python}
+RF_search = RandomizedSearchCV(
+    RF_pipeline,
+    param_distributions=param_dist,
+    n_iter=5,
+    cv=5,
+    scoring="neg_mean_squared_error",
+    n_jobs=1,
+    random_state=42
+)
+
+model = RF_search.fit(X_train, y_train)
+```
+
+This sets up a `RandomizedSearchCV` object called `RF_search` to tune the Random Forest pipeline. It tries **5 random combinations** of the hyperparameters defined in `param_dist`, using **5-fold cross-validation** to evaluate each combination. The model is scored using negative mean squared error (`neg_mean_squared_error`), runs in parallel on 1 CPU cores (`n_jobs=1`), and uses a fixed `random_state=42`. Finally, `RF_search.fit(X_train, y_train)` trains the model on the training data and finds the best hyperparameter combination.
+
+Step 5: Make Predictions and Evaluate
+
+Random Forests make predictions by combining the outputs of many individual decision trees. For regression, each tree predicts a value for a given input, and the Random Forest averages all the tree predictions to produce the final output. This ensemble approach reduces overfitting and improves prediction stability compared to a single decision tree.
+
+```{python}
+y_pred = RF_search.predict(X_test)
+
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+mae = mean_absolute_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f"Random Forest Metrics:")
+print(f"RMSE: {rmse:.2f}, MAE: {mae:.2f}, R2: {r2:.2f}")
+
+```
+
+This code uses the trained Random Forest model (`RF_search`) to make predictions on the test set with `RF_search.predict(X_test)`. It then calculates three evaluation metrics: **RMSE** (root mean squared error) to penalize large errors, **MAE** (mean absolute error) to show average error magnitude, and **R²** to measure how much variance in the target is explained by the model. These metrics summarize the model's predictive performance, and Random Forests are especially useful for predicting health outcomes like days sick because they handle **skewed or noisy data** and capture complex interactions better than linear models.
+
+Here are the formulas to calculate **R²**, **RMSE**, and **MAE**
+
+$$
+R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
+$$
+
+$$
+\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+$$
+
+$$
+\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+$$
+
+Step 6: Visualize Predictions
+
+```{python}
+plt.figure(figsize=(6,6))
+plt.scatter(y_test, y_pred, alpha=0.7, color="blue")
+plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], "r--")
+plt.xlabel("Actual Days Sick")
+plt.ylabel("Predicted Days Sick")
+plt.title("Random Forest: Predicted vs Actual")
+plt.show()
+
+```
+
+This creates a **scatter plot** to compare the actual and predicted values of `days_sick`. Each point represents a patient, with the x-axis showing the true days sick (`y_test`) and the y-axis showing the predicted values (`y_pred`). The red dashed line represents perfect predictions, so points close to this line indicate accurate predictions, while points farther away show larger errors. This graph helps visually assess how well the Random Forest model captures the trends in the data.
+
+# Conclusion
+
+Random Forests are a powerful and flexible tool for regression tasks, capable of capturing complex **interactions** between features and handling **skewed or noisy data** effectively. By using preprocessing pipelines, hyperparameter tuning with cross-validation, and proper evaluation metrics like **RMSE, MAE, and R²**, we can build models that generalize well to new data. This tutorial demonstrated how to simulate a health dataset, train a Random Forest model, tune its parameters, make predictions, and evaluate performance, providing a complete workflow for predictive modeling in Python.

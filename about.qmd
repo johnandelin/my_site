@@ -4,28 +4,31 @@ title: "About Me"
 
 # Introduction
 
-I am a Statistics student at Brigham Young University with an emphasis in applied statistics and analytics. I am interested in using data to solve real-world problems, particularly in health, public safety, and scientific research contexts. I enjoy building statistical models, designing reproducible workflows, and translating complex analyses into clear, actionable insights.
+I am a Statistics student at Brigham Young University with an emphasis in Data Science. I am interested in using data to solve real-world problems, particularly in health, and public safety. Before Statistics I was studying microbiology and was involvd in research.
 
-Through coursework, research, and professional experience, I have developed a strong foundation in statistical modeling, machine learning, and data science tools across R and Python ecosystems.
+Through coursework, research, and personal projects, I have developed a strong foundation in statistical modeling, machine learning, and data science tools across R and Python ecosystems.
 
 # Education
 
 ## Brigham Young University — Provo, UT  
-Bachelor of Science in Statistics (Applied Statistics & Analytics)  
+Bachelor of Science in Statistics (Data Science)  
 Expected Graduation: April 2027  
 GPA: 3.4  
 
 **Relevant Coursework**
+
 - Analysis of Variance  
 - Probability & Statistical Inference  
 - Linear Regression Modeling  
 - Predictive Analytics & Machine Learning  
 - Data Visualization (Tableau)  
 - Data Science Ecosystems (SQL, Python, Linux, AWS)  
-- Calculus and Linear Algebra  
+- Calculus and Linear Algebra
+- Introduction to Computer Science (python)
 - Data Structures (C++)
 
 **Involvement**
+
 - Member, Statistics Club  
 - Statistics Department Teaching Assistant  
 
@@ -61,11 +64,16 @@ Spanish Fork, UT | Dec 2022 – Sep 2023
 - Applied ANOVA and ANCOVA techniques in R  
 - Produced data visualizations and statistical summaries  
 
-## Forest Cover Prediction  
+## Kaggle Forest Cover Prediction  
 - Built a machine learning pipeline in R to predict forest cover types  
 - Performed feature engineering, preprocessing, and normalization  
 - Developed and ensembled XGBoost, LightGBM, and Random Forest models  
 - Achieved strong predictive performance on held-out test data  
+
+## _Yersina ruckeri_ Pathogenesis Research
+- Awarded an undergraduate award to research Y. _ruckeri_ Pathogenesis.
+- Studied and ran tests on whether the cdsAB operon and I-Cysteine uptake systems relate to pathogenesis
+- Learned Microbiology lab techniques. 
 
 # Skills
 
@@ -89,6 +97,6 @@ Technical communication, teamwork, analytical thinking, problem-solving
 
 # Get to Know Me
 
-Outside of statistics, I enjoy learning about emerging technologies, scientific research, and problem-solving challenges. I value disciplined thinking, continuous learning, and applying quantitative tools to meaningful problems. I am particularly interested in roles that combine rigorous analysis with real-world impact.
+Outside of statistics, I enjoy staying active and spending time outdoors, particularly through rock climbing and hiking. I am also passionate about music, playing both the viola and clarinet, and participate in ensembles at BYU. Additionally, I maintain an interest in current research in health and technology.
 
-![Professional headshot of John Andelin, BYU Statistics student](images/headshot.jpg)
+![John Andelin, BYU Statistics student](images/headshot.jpg)

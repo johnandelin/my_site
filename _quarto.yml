@@ -9,6 +9,12 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - text: Blog
+        menu:
+          - text: Overview
+            href: Blog.qmd
+          - text: Random Forest Tutorial
+            href: tutorial.qmd
 
 format:
   html:
