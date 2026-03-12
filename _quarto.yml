@@ -8,13 +8,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - text: Blog
-        menu:
-          - text: Overview
-            href: Blog.qmd
-          - text: Random Forest Tutorial
-            href: tutorial.qmd
+      - href: about.qmd
+        text: About
+      - href: Blog.qmd
+        text: Blog
 
 format:
   html:

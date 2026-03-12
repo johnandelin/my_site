@@ -1,7 +1,5 @@
 ---
-title: "John Andelin"
+title: "Welcome to My Portfolio"
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+This site showcases my work in data analysis through tutorials and projects.

@@ -1,4 +1,11 @@
 ---
-title: Blog
-toc: True
+title: Overview
+toc: false
 ---
+This blog will have a few posts of topics that I find interesting in the form of a technical tutorial or an essay. 
+
+# Directory 
+
+[Scikit-Learn Random Forest](blog_posts/RF_sim_tutorial.qmd)
+
+[Data Acquisition using API's](blog_posts/API.qmd)

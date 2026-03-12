@@ -10,5 +10,11 @@
   },
   "Blog.qmd": {
     "Blog.html": "1943ed72"
+  },
+  "blog_posts/RF_sim_tutorial.qmd": {
+    "RF_sim_tutorial.html": "9a5fe46e"
+  },
+  "blog_posts/API.qmd": {
+    "API.html": "1bf32745"
   }
 }

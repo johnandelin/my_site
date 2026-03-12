@@ -1,0 +1,215 @@
+---
+title: Data Acquisition using API's
+toc: false
+---
+
+# Introduction
+
+In this project, I curated a dataset on state-level influenza and pneumonia mortality by using public and private APIs to collect, clean, and merge age-adjusted death rates with census data, demonstrating how APIs allow access to structured data for analysis. In this post I will demonstrate how I made this dataset using API's.
+
+### What is an API?
+
+As a reminder an API (Application Programming Interface) is a way for programs to request and receive data from a service through defined endpoints, unlike web scraping which extracts data directly from webpage content.
+
+### Interest
+
+I wanted to investigate whether state-level poverty rates influence the age-adjusted death rates (AADR) for patients affected by influenza and pneumonia across the United States.
+
+### Purpose for Data
+
+This dataset that I created combines state-level socioeconomic information (poverty rate, median income, population) with health outcomes (age-adjusted death rates for influenza and pneumonia), allowing to explore potential relationships between economic factors and public health outcomes.
+
+# Ethical Considerations
+
+All the data used in this project are publicly available from government sources the U.S. Census Bureau and CDC WONDER API both of which provide open data specifically for research and educational use. No personally identifiable information (PII) or confidential health records are accessed; all statistics are aggregated at the state level. Using these APIs respects privacy because the data sets only contain summary counts, rates, and demographic aggregates, and proper attribution is given to the data providers. Therefore, gathering and analyzing this data is ethical, legal, and aligned with good data practices.
+
+### Data Sources
+
+[NCHS - Leading Causes of Death: United States](https://data.cdc.gov/National-Center-for-Health-Statistics/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu/about_data)
+
+[Census Bureau](https://www.census.gov/data.html)
+
+# Data Curation
+### Census Data
+
+To get the US census data requires a private API key. This key is free and simple to get. You request a unique API key at their website at this link [Census API Key](https://api.census.gov/data/key_signup.html).
+
+This Python code iterates over multiple years to query the U.S. Census API for state-level data on population, median income, and poverty counts, constructs a list of dictionaries from the JSON response, appends a year column, converts it into a Pandas data frame, renames the Census variable codes to meaningful column names, and ensures numeric columns are properly typed—showing how to systematically collect, clean, and structure API data for further analysis in a reproducible workflow. We iterate over year because the Census API provides data one year at a time, so to collect a multi-year dataset, we must send a separate request for each year and then combine the results into a single data frame.
+
+```{txt}
+
+census_vars = ["B01003_001E","B19013_001E","B17001_002E"]  
+census_data = []
+
+for year in years:
+    url = (
+        f"https://api.census.gov/data/{year}/acs/acs5"
+        f"?get=NAME,{','.join(census_vars)}"
+        f"&for=state:*"
+        f"&key={API_CENSUS}" # API key
+    )
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        json_data = response.json()
+        header = json_data[0]
+
+        for row in json_data[1:]:
+            row_dict = dict(zip(header, row))
+            row_dict["year"] = year
+            census_data.append(row_dict)
+    else:
+        print(f"Census error {response.status_code} for {year}")
+
+    time.sleep(0.5)  # gentle pause for API to not overload their server
+
+census_df = pd.DataFrame(census_data)
+
+# Rename columns
+census_df.rename(
+    columns={
+        "B01003_001E": "population",
+        "B19013_001E": "median_income",
+        "B17001_002E": "poverty_count",
+        "NAME": "state_name",
+        "state": "state_code"
+    },
+    inplace=True
+)
+
+# Convert numeric
+census_df["population"] = pd.to_numeric(census_df["population"])
+census_df["median_income"] = pd.to_numeric(census_df["median_income"])
+census_df["poverty_count"] = pd.to_numeric(census_df["poverty_count"])
+```
+
+### CDC Data
+
+The CDC data has a public endpoint and did not require a private API key.The public API endpoint can be found here [NCHS - Leading Causes of Death: United States](https://data.cdc.gov/National-Center-for-Health-Statistics/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu/about_data). I used the SODA2 endpoint because it does not require authentication and allowed me to request more data at a time.
+
+This Python code iteratively queries the public CDC API for all state-level records of influenza and pneumonia deaths, paging through the dataset in batches of 50,000 rows using `$limit` and `$offset`, converts the results into a Pandas data frame, and ensures that the `year`, `deaths`, and `aadr` columns are numeric, producing a clean dataset. Very similar to what I did for the census data.
+
+```{txt}
+
+base_url = "https://data.cdc.gov/resource/bi63-dtpu.json" #public api endpoint
+
+all_data = []
+limit = 50000
+offset = 0
+
+while True:
+    params = {
+        "$limit": limit,
+        "$offset": offset,
+        "$where": "cause_name='Influenza and pneumonia'"
+    }
+    
+    response = requests.get(base_url, params=params)
+    
+    if response.status_code != 200:
+        print(f"Error {response.status_code}")
+        break
+    
+    batch = response.json()
+    if not batch:
+        break
+    
+    all_data.extend(batch)
+    offset += limit
+    print(f"Fetched {len(all_data)} rows so far...")
+    time.sleep(0.2)
+
+cdc_df = pd.DataFrame(all_data)
+
+if not cdc_df.empty:
+    cdc_df["year"] = pd.to_numeric(cdc_df["year"], errors="coerce")
+    cdc_df["deaths"] = pd.to_numeric(cdc_df["deaths"], errors="coerce")
+    cdc_df["aadr"] = pd.to_numeric(cdc_df["aadr"], errors="coerce")
+    print("CDC influenza & pneumonia data loaded:", cdc_df.shape[0])
+else:
+    print("No influenza & pneumonia deaths data loaded")
+
+
+```
+
+It is a good practice to use `print` statements when scraping code or using API's. They help monitoring progress and debugging: they can show how many rows have been fetched so far, alert you to any HTTP errors, and confirm whether the final dataset loaded correctly, which is especially helpful when iterating over large data sets or paginated API requests.
+
+# Merging our Data and Feature Engineering
+
+After fetching data from the APIs, we merge the Census and CDC data sets into a single data frame and create a new variable, `poverty_rate`, by dividing the number of people in poverty by the total state population, enabling analysis of how socioeconomic factors relate to age-adjusted death rates.
+
+```{txt}
+final_df = pd.merge(
+    census_df,
+    cdc_df,
+    left_on=["state_name","year"],
+    right_on=["state","year"],
+    how="left"
+)
+
+# Feature engineering
+
+final_df["poverty_rate"] = final_df["poverty_count"] / final_df["population"]
+final_df["cause_of_death"] = final_df["cause_name"]
+final_df = final_df[["year", "state", "cause_of_death", "population", "median_income", "poverty_count", "aadr", "poverty_rate"]]
+```
+
+# Data Quality
+### Final Data set Overview
+
+The final dataset contains:
+
+-   **416 observations** (state-year combinations from 2010–2017)
+-   **8 variables**
+
+| Variable      | Description                          |
+|---------------|--------------------------------------|
+| year          | Year of observation                  |
+| state         | U.S. state                           |
+| population    | Total state population               |
+| median_income | Median household income              |
+| poverty_count | Number of people in poverty          |
+| poverty_rate  | Poverty proportion of population     |
+| deaths        | Number of influenza/pneumonia deaths |
+| aadr          | Age-adjusted death rate per 100,000  |
+
+### Summary Stats
+
+Using R I am going to show the quality of the data and some summary statistics.
+
+```{r}
+library(tidyverse)
+flu <- read_csv("influenza_pneumonia_dataset.csv")
+```
+
+Showing the first 6 rows of the data set.
+
+```{r}
+head(flu)
+```
+
+Showing a summary of the data and its variables.
+
+```{r}
+summary(flu)
+
+```
+
+Showing the missingness of the data.
+
+```{r}
+flu |>
+  summarise(across(everything(), ~sum(is.na(.)))) |>
+  print()
+```
+
+Some values are missing in the dataset because not every state reports data for every year or cause of death, and the CDC suppresses certain counts to protect privacy when the number of deaths is very small. Additionally, reporting errors, delays in data collection, or inconsistencies in state-level reporting can result in missing entries. These gaps are common in public health data sets and are important to acknowledge when analyzing trends.
+
+# Conclusion
+
+In this project, I built an original dataset by collecting data from two public government APIs: the U.S. Census Bureau and the CDC. Using Python, I automated the process of requesting data from these APIs, cleaning the responses, and merging them into a single dataset containing state-level population, income, poverty, and influenza/pneumonia mortality information from 2010–2017. The final data set allows us to explore relationships between socioeconomic conditions and public health outcomes, particularly whether higher poverty rates are associated with higher age-adjusted death rates for influenza and pneumonia.
+
+While this dataset provides useful insight at the state level, it also has limitations. Some values are missing due to reporting gaps or suppression of small death counts, and state-level averages may hide important variation within states. Nevertheless, this workflow demonstrates how APIs can be used to reproducibly gather and combine data from multiple sources, creating a structured dataset that can be used for future analysis and research.
+
+For more information and EDA of this data set visit my [GitHub](https://github.com/johnandelin/state_flu_mortality).
