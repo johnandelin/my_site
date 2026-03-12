@@ -252,11 +252,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="cdc-data" class="level3">
 <h3 class="anchored" data-anchor-id="cdc-data">CDC Data</h3>
-<p>The CDC data has a public endpoint and did not require a private API key.The public API endpoint can be found here <a href="https://data.cdc.gov/National-Center-for-Health-Statistics/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu/about_data">NCHS - Leading Causes of Death: United States</a>. I used the SODA2 endpoint because it does not require authentication and allowed me to request more data at a time.</p>
+<p>The CDC data has a public endpoint and did not require a private API key.The public API endpoint can be found here <a href="https://data.cdc.gov/National-Center-for-Health-Statistics/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu/about_data">NCHS - Leading Causes of Death: United States</a>. I used the SODA2 API endpoint because it does not require authentication and allowed me to request more data at a time, other endpoints have stricter limitations.</p>
 <p>This Python code iteratively queries the public CDC API for all state-level records of influenza and pneumonia deaths, paging through the dataset in batches of 50,000 rows using <code>$limit</code> and <code>$offset</code>, converts the results into a Pandas data frame, and ensures that the <code>year</code>, <code>deaths</code>, and <code>aadr</code> columns are numeric, producing a clean dataset. Very similar to what I did for the census data.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>base_url = "https://data.cdc.gov/resource/bi63-dtpu.json" #public api endpoint</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>base_url = "https://data.cdc.gov/resource/bi63-dtpu.json" # SODA2 public api endpoint</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>all_data = []</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>limit = 50000</span>
@@ -454,7 +454,7 @@ dbl (6): year, population, median_income, poverty_count, aadr, poverty_rate
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
 <p>In this project, I built an original dataset by collecting data from two public government APIs: the U.S. Census Bureau and the CDC. Using Python, I automated the process of requesting data from these APIs, cleaning the responses, and merging them into a single dataset containing state-level population, income, poverty, and influenza/pneumonia mortality information from 2010–2017. The final data set allows us to explore relationships between socioeconomic conditions and public health outcomes, particularly whether higher poverty rates are associated with higher age-adjusted death rates for influenza and pneumonia.</p>
-<p>While this dataset provides useful insight at the state level, it also has limitations. Some values are missing due to reporting gaps or suppression of small death counts, and state-level averages may hide important variation within states. Nevertheless, this workflow demonstrates how APIs can be used to reproducibly gather and combine data from multiple sources, creating a structured dataset that can be used for future analysis and research.</p>
+<p>While this dataset provides useful insight at the state level, it also has limitations. Some values are missing due to reporting gaps or suppression of small death counts, and state-level averages may hide important variation within states. Nevertheless, this workflow demonstrates how APIs can be used to reproduce and gather and combine data from multiple sources, creating a structured dataset that can be used for future analysis and research.</p>
 <p>For more information and EDA of this data set visit my <a href="https://github.com/johnandelin/state_flu_mortality">GitHub</a>.</p>
 
 

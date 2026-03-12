@@ -86,13 +86,13 @@ census_df["poverty_count"] = pd.to_numeric(census_df["poverty_count"])
 
 ### CDC Data
 
-The CDC data has a public endpoint and did not require a private API key.The public API endpoint can be found here [NCHS - Leading Causes of Death: United States](https://data.cdc.gov/National-Center-for-Health-Statistics/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu/about_data). I used the SODA2 endpoint because it does not require authentication and allowed me to request more data at a time.
+The CDC data has a public endpoint and did not require a private API key.The public API endpoint can be found here [NCHS - Leading Causes of Death: United States](https://data.cdc.gov/National-Center-for-Health-Statistics/NCHS-Leading-Causes-of-Death-United-States/bi63-dtpu/about_data). I used the SODA2 API endpoint because it does not require authentication and allowed me to request more data at a time, other endpoints have stricter limitations.
 
 This Python code iteratively queries the public CDC API for all state-level records of influenza and pneumonia deaths, paging through the dataset in batches of 50,000 rows using `$limit` and `$offset`, converts the results into a Pandas data frame, and ensures that the `year`, `deaths`, and `aadr` columns are numeric, producing a clean dataset. Very similar to what I did for the census data.
 
 ```{txt}
 
-base_url = "https://data.cdc.gov/resource/bi63-dtpu.json" #public api endpoint
+base_url = "https://data.cdc.gov/resource/bi63-dtpu.json" # SODA2 public api endpoint
 
 all_data = []
 limit = 50000
@@ -210,6 +210,6 @@ Some values are missing in the dataset because not every state reports data for 
 
 In this project, I built an original dataset by collecting data from two public government APIs: the U.S. Census Bureau and the CDC. Using Python, I automated the process of requesting data from these APIs, cleaning the responses, and merging them into a single dataset containing state-level population, income, poverty, and influenza/pneumonia mortality information from 2010–2017. The final data set allows us to explore relationships between socioeconomic conditions and public health outcomes, particularly whether higher poverty rates are associated with higher age-adjusted death rates for influenza and pneumonia.
 
-While this dataset provides useful insight at the state level, it also has limitations. Some values are missing due to reporting gaps or suppression of small death counts, and state-level averages may hide important variation within states. Nevertheless, this workflow demonstrates how APIs can be used to reproducibly gather and combine data from multiple sources, creating a structured dataset that can be used for future analysis and research.
+While this dataset provides useful insight at the state level, it also has limitations. Some values are missing due to reporting gaps or suppression of small death counts, and state-level averages may hide important variation within states. Nevertheless, this workflow demonstrates how APIs can be used to reproduce and gather and combine data from multiple sources, creating a structured dataset that can be used for future analysis and research.
 
 For more information and EDA of this data set visit my [GitHub](https://github.com/johnandelin/state_flu_mortality).
