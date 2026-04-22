@@ -16,5 +16,26 @@
   },
   "blog_posts/API.qmd": {
     "API.html": "1bf32745"
+  },
+  "projects/data-acquisition.qmd": {
+    "data-acquisition.html": "a9f4b79e"
+  },
+  "projects/eda.qmd": {
+    "eda.html": "7d76f858"
+  },
+  "projects/final-project/api.qmd": {
+    "api.html": "1cd57646"
+  },
+  "projects/final-project/index.qmd": {
+    "index.html": "4496e178"
+  },
+  "projects/final-project/report.qmd": {
+    "report.html": "59bd7e36"
+  },
+  "projects/final-project/tutorial.qmd": {
+    "tutorial.html": "08cfde52"
+  },
+  "projects/index.md": {
+    "index.html": "430d06de"
   }
 }

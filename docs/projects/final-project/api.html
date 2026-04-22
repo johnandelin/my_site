@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Welcome to My Portfolio – John’s Data Science Portfolio</title>
+<title>API Reference – John’s Data Science Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -80,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">John’s Data Science Portfolio</span>
     </a>
   </div>
@@ -91,15 +126,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Blog.html"> 
+    <a class="nav-link" href="../../Blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -108,23 +143,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
         <li>
-    <a class="dropdown-item" href="./projects/index.html">
+    <a class="dropdown-item" href="../../projects/index.html">
  <span class="dropdown-text">All Projects</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/final-project/index.html">
+    <a class="dropdown-item" href="../../projects/final-project/index.html">
  <span class="dropdown-text">Final Project - Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/final-project/report.html">
+    <a class="dropdown-item" href="../../projects/final-project/report.html">
  <span class="dropdown-text">Final Project - Technical Report</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/final-project/tutorial.html">
+    <a class="dropdown-item" href="../../projects/final-project/tutorial.html">
  <span class="dropdown-text">Final Project - Tutorial</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/final-project/api.html">
+    <a class="dropdown-item" href="../../projects/final-project/api.html">
  <span class="dropdown-text">Final Project - API Reference</span></a>
   </li>  
     </ul>
@@ -140,15 +175,37 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#api-reference" id="toc-api-reference" class="nav-link active" data-scroll-target="#api-reference">API Reference</a>
+  <ul class="collapse">
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#cleaning-module" id="toc-cleaning-module" class="nav-link" data-scroll-target="#cleaning-module"><code>cleaning</code> module</a>
+  <ul class="collapse">
+  <li><a href="#add_seasondf-date_coldate" id="toc-add_seasondf-date_coldate" class="nav-link" data-scroll-target="#add_seasondf-date_coldate"><code>add_season(df, date_col='date')</code></a></li>
+  <li><a href="#clean_city_datasetsfile_list" id="toc-clean_city_datasetsfile_list" class="nav-link" data-scroll-target="#clean_city_datasetsfile_list"><code>clean_city_datasets(file_list)</code></a></li>
+  <li><a href="#clean_assault_datasetfile" id="toc-clean_assault_datasetfile" class="nav-link" data-scroll-target="#clean_assault_datasetfile"><code>clean_assault_dataset(file)</code></a></li>
+  <li><a href="#clean_slc_datasetsfile_list" id="toc-clean_slc_datasetsfile_list" class="nav-link" data-scroll-target="#clean_slc_datasetsfile_list"><code>clean_slc_datasets(file_list)</code></a></li>
+  <li><a href="#clean_city_columndf-city_colcity" id="toc-clean_city_columndf-city_colcity" class="nav-link" data-scroll-target="#clean_city_columndf-city_colcity"><code>clean_city_column(df, city_col='city')</code></a></li>
+  </ul></li>
+  <li><a href="#visualizations-module" id="toc-visualizations-module" class="nav-link" data-scroll-target="#visualizations-module"><code>visualizations</code> module</a>
+  <ul class="collapse">
+  <li><a href="#dataloader" id="toc-dataloader" class="nav-link" data-scroll-target="#dataloader"><code>DataLoader</code></a></li>
+  <li><a href="#exporter" id="toc-exporter" class="nav-link" data-scroll-target="#exporter"><code>Exporter</code></a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome to My Portfolio</h1>
+<h1 class="title">API Reference</h1>
 </div>
 
 
@@ -165,9 +222,123 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This site showcases my work in data analysis through tutorials and projects.</p>
+<section id="api-reference" class="level1">
+<h1>API Reference</h1>
+<p>This page documents the public functions available after installing the <code>utah-crime-analysis</code> package.</p>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="cleaning-module" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-module"><code>cleaning</code> module</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cleaning <span class="im">import</span> add_season, clean_city_datasets, clean_assault_dataset, clean_slc_datasets, clean_city_column</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<section id="add_seasondf-date_coldate" class="level3">
+<h3 class="anchored" data-anchor-id="add_seasondf-date_coldate"><code>add_season(df, date_col='date')</code></h3>
+<p>Adds a <code>season</code> column to a DataFrame based on a date column.</p>
+<p><strong>Parameters:</strong> - <code>df</code> (<em>pd.DataFrame</em>) — Input DataFrame containing a date column. - <code>date_col</code> (<em>str</em>, default <code>'date'</code>) — Name of the column containing date values.</p>
+<p><strong>Returns:</strong> <code>pd.DataFrame</code> — Copy of the input with an added <code>season</code> column (<code>"Spring"</code>, <code>"Summer"</code>, <code>"Fall"</code>, or <code>"Winter"</code>). Rows with unparseable dates get <code>pd.NA</code>.</p>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cleaning <span class="im">import</span> add_season</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">"date"</span>: [<span class="st">"03/15/2015"</span>, <span class="st">"07/04/2015"</span>, <span class="st">"10/31/2015"</span>, <span class="st">"12/25/2015"</span>]})</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> add_season(df)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"season"</span>].tolist())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="clean_city_datasetsfile_list" class="level3">
+<h3 class="anchored" data-anchor-id="clean_city_datasetsfile_list"><code>clean_city_datasets(file_list)</code></h3>
+<p>Cleans and standardizes multiple city-level crime datasets into a single DataFrame.</p>
+<p><strong>Parameters:</strong> - <code>file_list</code> (<em>list of str</em>) — File paths to city crime CSV files.</p>
+<p><strong>Returns:</strong> <code>pd.DataFrame</code> — Concatenated, cleaned DataFrame with columns: <code>case_number</code>, <code>city</code>, <code>incident_type_primary</code>, <code>parent_incident_type</code>, <code>date</code>, <code>time_of_day</code>, <code>day_of_week</code>, <code>latitude</code>, <code>longitude</code>, <code>address</code>, <code>zip</code>, <code>season</code>.</p>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cleaning <span class="im">import</span> clean_city_datasets</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> clean_city_datasets([<span class="st">"data/orem_crime.csv"</span>, <span class="st">"data/logan_crime.csv"</span>])</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="clean_assault_datasetfile" class="level3">
+<h3 class="anchored" data-anchor-id="clean_assault_datasetfile"><code>clean_assault_dataset(file)</code></h3>
+<p>Cleans the Salt Lake City assault dataset, which uses a different column schema than the standard city datasets.</p>
+<p><strong>Parameters:</strong> - <code>file</code> (<em>str</em>) — File path to the assault CSV.</p>
+<p><strong>Returns:</strong> <code>pd.DataFrame</code> — Cleaned DataFrame using the standard schema.</p>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cleaning <span class="im">import</span> clean_assault_dataset</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> clean_assault_dataset(<span class="st">"data/slc_assault_2012.csv"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.columns.tolist())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="clean_slc_datasetsfile_list" class="level3">
+<h3 class="anchored" data-anchor-id="clean_slc_datasetsfile_list"><code>clean_slc_datasets(file_list)</code></h3>
+<p>Cleans and standardizes Salt Lake City police report datasets (2013–2014 format).</p>
+<p><strong>Parameters:</strong> - <code>file_list</code> (<em>list of str</em>) — File paths to SLC police CSV files.</p>
+<p><strong>Returns:</strong> <code>pd.DataFrame</code> — Concatenated, cleaned DataFrame using the standard schema.</p>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cleaning <span class="im">import</span> clean_slc_datasets</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> clean_slc_datasets([<span class="st">"data/slc_police_cases_2013.csv"</span>, <span class="st">"data/slc_police_cases_2014.csv"</span>])</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"city"</span>].unique())  <span class="co"># ['Salt Lake City']</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="clean_city_columndf-city_colcity" class="level3">
+<h3 class="anchored" data-anchor-id="clean_city_columndf-city_colcity"><code>clean_city_column(df, city_col='city')</code></h3>
+<p>Standardizes city names: expands directional abbreviations, resolves known aliases, groups non-city entries, and applies title case.</p>
+<p><strong>Parameters:</strong> - <code>df</code> (<em>pd.DataFrame</em>) — Input DataFrame. - <code>city_col</code> (<em>str</em>, default <code>'city'</code>) — Name of the city column.</p>
+<p><strong>Returns:</strong> <code>pd.DataFrame</code> — Copy with a cleaned city column.</p>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cleaning <span class="im">import</span> clean_city_column</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">"city"</span>: [<span class="st">"slc"</span>, <span class="st">"west valley"</span>, <span class="st">"n. Salt Lake"</span>, <span class="st">"interstate"</span>]})</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> clean_city_column(df)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"city"</span>].tolist())</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ['Salt Lake City', 'West Valley City', 'North Salt Lake', 'County/Interstate/Other']</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="visualizations-module" class="level2">
+<h2 class="anchored" data-anchor-id="visualizations-module"><code>visualizations</code> module</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> visualizations <span class="im">import</span> DataLoader, Exporter</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<section id="dataloader" class="level3">
+<h3 class="anchored" data-anchor-id="dataloader"><code>DataLoader</code></h3>
+<p>Loads and preprocesses <code>cleaned_data/master_crime_data.csv</code> for visualization.</p>
+<section id="dataloader.load---pd.dataframe" class="level4">
+<h4 class="anchored" data-anchor-id="dataloader.load---pd.dataframe"><code>DataLoader.load() -&gt; pd.DataFrame</code></h4>
+<p>Reads the master crime CSV, filters to valid Utah coordinates and years 2007–2019, assigns crime categories, and returns a clean DataFrame.</p>
+<p><strong>Returns:</strong> <code>pd.DataFrame</code> — Columns include <code>latitude</code>, <code>longitude</code>, <code>year</code>, <code>category</code>, <code>city</code>, <code>parent_incident_type</code>.</p>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> visualizations <span class="im">import</span> DataLoader</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> DataLoader().load()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"category"</span>].value_counts())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="exporter" class="level3">
+<h3 class="anchored" data-anchor-id="exporter"><code>Exporter</code></h3>
+<p>Exports crime data to JSON for the JavaScript heatmap visualization.</p>
+<section id="exporterdf" class="level4">
+<h4 class="anchored" data-anchor-id="exporterdf"><code>Exporter(df)</code></h4>
+<p><strong>Parameters:</strong> - <code>df</code> (<em>pd.DataFrame</em>) — Output of <code>DataLoader.load()</code>.</p>
+</section>
+<section id="exporter.run" class="level4">
+<h4 class="anchored" data-anchor-id="exporter.run"><code>Exporter.run()</code></h4>
+<p>Writes <code>visualizations/data/crime_data.json</code> containing heatmap coordinates, bar chart data, and statistics for all years and crime categories.</p>
+<p><strong>Example:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> visualizations <span class="im">import</span> DataLoader, Exporter</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>Exporter(DataLoader().load()).run()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
+</section>
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

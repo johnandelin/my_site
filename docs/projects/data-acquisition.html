@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jacob Mitchell">
+<meta name="dcterms.date" content="2026-03-10">
 
-<title>About Me – John’s Data Science Portfolio</title>
+<title>Building an Overwatch Hero Dataset – John’s Data Science Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -80,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">John’s Data Science Portfolio</span>
     </a>
   </div>
@@ -91,15 +128,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Blog.html"> 
+    <a class="nav-link" href="../Blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -108,23 +145,23 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
         <li>
-    <a class="dropdown-item" href="./projects/index.html">
+    <a class="dropdown-item" href="../projects/index.html">
  <span class="dropdown-text">All Projects</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/final-project/index.html">
+    <a class="dropdown-item" href="../projects/final-project/index.html">
  <span class="dropdown-text">Final Project - Overview</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/final-project/report.html">
+    <a class="dropdown-item" href="../projects/final-project/report.html">
  <span class="dropdown-text">Final Project - Technical Report</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/final-project/tutorial.html">
+    <a class="dropdown-item" href="../projects/final-project/tutorial.html">
  <span class="dropdown-text">Final Project - Tutorial</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/final-project/api.html">
+    <a class="dropdown-item" href="../projects/final-project/api.html">
  <span class="dropdown-text">Final Project - API Reference</span></a>
   </li>  
     </ul>
@@ -145,33 +182,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">Education</a>
+  <li><a href="#why-overwatch-data" id="toc-why-overwatch-data" class="nav-link active" data-scroll-target="#why-overwatch-data">Why Overwatch Data?</a></li>
+  <li><a href="#how-does-hero-win-rate-determine-their-pick-rate" id="toc-how-does-hero-win-rate-determine-their-pick-rate" class="nav-link" data-scroll-target="#how-does-hero-win-rate-determine-their-pick-rate">How does Hero win rate determine their pick rate?</a></li>
+  <li><a href="#is-it-ethical-and-allowable" id="toc-is-it-ethical-and-allowable" class="nav-link" data-scroll-target="#is-it-ethical-and-allowable">Is It Ethical and Allowable?</a></li>
+  <li><a href="#how-the-data-was-collected" id="toc-how-the-data-was-collected" class="nav-link" data-scroll-target="#how-the-data-was-collected">How the Data Was Collected</a></li>
+  <li><a href="#dataset-shape-overview" id="toc-dataset-shape-overview" class="nav-link" data-scroll-target="#dataset-shape-overview">Dataset Shape Overview</a>
   <ul class="collapse">
-  <li><a href="#brigham-young-university-provo-ut" id="toc-brigham-young-university-provo-ut" class="nav-link" data-scroll-target="#brigham-young-university-provo-ut">Brigham Young University — Provo, UT</a></li>
+  <li><a href="#data-dictionary" id="toc-data-dictionary" class="nav-link" data-scroll-target="#data-dictionary">Data Dictionary</a></li>
   </ul></li>
-  <li><a href="#experience" id="toc-experience" class="nav-link" data-scroll-target="#experience">Experience</a>
-  <ul class="collapse">
-  <li><a href="#statistics-department-teaching-assistant" id="toc-statistics-department-teaching-assistant" class="nav-link" data-scroll-target="#statistics-department-teaching-assistant">Statistics Department — Teaching Assistant</a></li>
-  <li><a href="#risk-management-department-technician" id="toc-risk-management-department-technician" class="nav-link" data-scroll-target="#risk-management-department-technician">Risk Management Department — Technician</a></li>
-  <li><a href="#summit-nutritional-laboratories-physical-chemistry-qc-technician" id="toc-summit-nutritional-laboratories-physical-chemistry-qc-technician" class="nav-link" data-scroll-target="#summit-nutritional-laboratories-physical-chemistry-qc-technician">Summit Nutritional Laboratories — Physical Chemistry QC Technician</a></li>
-  </ul></li>
-  <li><a href="#research-projects" id="toc-research-projects" class="nav-link" data-scroll-target="#research-projects">Research &amp; Projects</a>
-  <ul class="collapse">
-  <li><a href="#fabric-shrinkage-analysis" id="toc-fabric-shrinkage-analysis" class="nav-link" data-scroll-target="#fabric-shrinkage-analysis">Fabric Shrinkage Analysis</a></li>
-  <li><a href="#kaggle-forest-cover-prediction" id="toc-kaggle-forest-cover-prediction" class="nav-link" data-scroll-target="#kaggle-forest-cover-prediction">Kaggle Forest Cover Prediction</a></li>
-  <li><a href="#yersina-ruckeri-pathogenesis-research" id="toc-yersina-ruckeri-pathogenesis-research" class="nav-link" data-scroll-target="#yersina-ruckeri-pathogenesis-research"><em>Yersina ruckeri</em> Pathogenesis Research</a></li>
-  </ul></li>
-  <li><a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a>
-  <ul class="collapse">
-  <li><a href="#programming" id="toc-programming" class="nav-link" data-scroll-target="#programming">Programming</a></li>
-  <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
-  <li><a href="#statistical-methods" id="toc-statistical-methods" class="nav-link" data-scroll-target="#statistical-methods">Statistical Methods</a></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
-  <li><a href="#laboratory-scientific-skills" id="toc-laboratory-scientific-skills" class="nav-link" data-scroll-target="#laboratory-scientific-skills">Laboratory &amp; Scientific Skills</a></li>
-  <li><a href="#professional-skills" id="toc-professional-skills" class="nav-link" data-scroll-target="#professional-skills">Professional Skills</a></li>
-  </ul></li>
-  <li><a href="#get-to-know-me" id="toc-get-to-know-me" class="nav-link" data-scroll-target="#get-to-know-me">Get to Know Me</a></li>
+  <li><a href="#cleaning-and-transformations" id="toc-cleaning-and-transformations" class="nav-link" data-scroll-target="#cleaning-and-transformations">Cleaning and Transformations</a></li>
+  <li><a href="#data-quality-considerations" id="toc-data-quality-considerations" class="nav-link" data-scroll-target="#data-quality-considerations">Data Quality Considerations</a></li>
+  <li><a href="#links-and-resources" id="toc-links-and-resources" class="nav-link" data-scroll-target="#links-and-resources">Links and Resources</a></li>
   </ul>
 </nav>
     </div>
@@ -180,14 +201,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About Me</h1>
+<h1 class="title">Building an Overwatch Hero Dataset</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jacob Mitchell </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 10, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -197,153 +230,168 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>I am a Statistics student at Brigham Young University with an emphasis in Data Science. I am interested in using data to solve real-world problems, particularly in health, and public safety. Before Statistics I was studying microbiology and was involvd in research.</p>
-<p>Through coursework, research, and personal projects, I have developed a strong foundation in statistical modeling, machine learning, and data science tools across R and Python ecosystems.</p>
+<section id="why-overwatch-data" class="level2">
+<h2 class="anchored" data-anchor-id="why-overwatch-data">Why Overwatch Data?</h2>
+<p>During Covid quarantine my friends and I were forced to find a new way to hangout since we were locked inside. As a resault we ending up playing a lot of the hero shooter Overwatch. Ever since then we have contiuned to play and have gotten pretty good and are ranked fairly high. When we play we all have our set roles we play. For example our 2 dps are Gatlin and I. In these roles we tend to play the same heros for the most part. However with the new season that has recently season has come a couple new heros have been added so the scope of the games changed. Many players follow the “Meta” when it comes to play style and hero picks. The meta is swayed based on what characters are seen as over powered or extremly useful in certain situations.</p>
+<hr>
 </section>
-<section id="education" class="level1">
-<h1>Education</h1>
-<section id="brigham-young-university-provo-ut" class="level2">
-<h2 class="anchored" data-anchor-id="brigham-young-university-provo-ut">Brigham Young University — Provo, UT</h2>
-<p>Bachelor of Science in Statistics (Data Science)<br>
-Expected Graduation: April 2027<br>
-GPA: 3.4</p>
-<p><strong>Relevant Coursework</strong></p>
+<section id="how-does-hero-win-rate-determine-their-pick-rate" class="level2">
+<h2 class="anchored" data-anchor-id="how-does-hero-win-rate-determine-their-pick-rate">How does Hero win rate determine their pick rate?</h2>
+<p>In lower ranks ther is an clear wider spread in what heros are chosen. There is no strict play style compared to high ranks. Watching higher rank game play we see teams such as “dive comps” become popular since they are extremly good for applying pressure to the opposing team. The purpose of this analysis is to see if there is any trend in hero pick rate and there given win rate and wether we can predict the best possible teamns.</p>
+<hr>
+</section>
+<section id="is-it-ethical-and-allowable" class="level2">
+<h2 class="anchored" data-anchor-id="is-it-ethical-and-allowable">Is It Ethical and Allowable?</h2>
+<p>Before doing any data acquisition it is important to check the rules of any given api.</p>
+<p><strong><a href="https://overfast-api.tekrop.fr">OverFast API</a></strong> is an open-source REST API that wraps Blizzard’s official data and exposes it in a clean JSON format.</p>
+<p>This Api is a free and publicly documented however even with a permissive API, I followed the following practices:</p>
 <ul>
-<li>Analysis of Variance<br>
-</li>
-<li>Probability &amp; Statistical Inference<br>
-</li>
-<li>Linear Regression Modeling<br>
-</li>
-<li>Predictive Analytics &amp; Machine Learning<br>
-</li>
-<li>Data Visualization (Tableau)<br>
-</li>
-<li>Data Science Ecosystems (SQL, Python, Linux, AWS)<br>
-</li>
-<li>Calculus and Linear Algebra</li>
-<li>Introduction to Computer Science (python)</li>
-<li>Data Structures (C++)</li>
+<li><code>time.sleep(1)</code> between every request</li>
+<li>Requests are batched by rank so total API hits are limited</li>
 </ul>
-<p><strong>Involvement</strong></p>
+<hr>
+</section>
+<section id="how-the-data-was-collected" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-data-was-collected">How the Data Was Collected</h2>
+<p>The OverFast API has two endpoints I needed:</p>
 <ul>
-<li>Member, Statistics Club<br>
-</li>
-<li>Statistics Department Teaching Assistant</li>
+<li><strong><code>/heroes</code></strong> — returns the full hero roster with roles</li>
+<li><strong><code>/heroes/stats</code></strong> — returns pick rate and win rate for all heroes within the requested rank</li>
 </ul>
+<p>I built the dataset in two stages. I started by called the <strong><code>/heroes</code></strong> endpoint once to get the full roster and built a lookup from hero to role. Then I looped over the seven competitive ranks and for each tier called <strong><code>/heroes/stats</code></strong> with <code>platform=pc</code>, <code>gamemode=competitive</code>, and <code>region=americas</code>. Each stats response gives every hero’s pick rate and win rate for that rank. I combined those with the role lookup, normalized names and capitalization, and appended rows into a single list. After each request I used <code>time.sleep(1)</code> to avoid overloading the API. Lastly I turned the list of rows into a pandas DataFrame and saved it as CSV.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#get every hero's role from the /heroes endpoint</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>heroes <span class="op">=</span> requests.get(<span class="st">"https://overfast-api.tekrop.fr/heroes"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>heroesList <span class="op">=</span> heroes.json()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>role <span class="op">=</span> {}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> hero <span class="kw">in</span> heroesList:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    role[hero[<span class="st">"key"</span>]] <span class="op">=</span> hero[<span class="st">"role"</span>].capitalize()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># The competitive rank tiers </span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>tiers <span class="op">=</span> [<span class="st">"bronze"</span>, <span class="st">"silver"</span>, <span class="st">"gold"</span>, <span class="st">"platinum"</span>, <span class="st">"diamond"</span>, <span class="st">"master"</span>, <span class="st">"grandmaster"</span>]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># fetch all hero stats in one request</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> tier <span class="kw">in</span> tiers:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"https://overfast-api.tekrop.fr/heroes/stats"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        params<span class="op">=</span>{</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">"platform"</span>: <span class="st">"pc"</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">"gamemode"</span>: <span class="st">"competitive"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">"region"</span>: <span class="st">"americas"</span>,</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">"competitive_division"</span>: tier,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> response.json()</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> entry <span class="kw">in</span> data:</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        hero_key <span class="op">=</span> entry[<span class="st">"hero"</span>]</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        rows.append({</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">"hero"</span>: hero_key.replace(<span class="st">"-"</span>, <span class="st">" "</span>).title(),  </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>            <span class="st">"role"</span>: role.get(hero_key, <span class="st">"Unknown"</span>),</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>            <span class="st">"rank_tier"</span>: tier.capitalize(),</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>            <span class="st">"pick_rate"</span>: entry[<span class="st">"pickrate"</span>],</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>            <span class="st">"win_rate"</span>: entry[<span class="st">"winrate"</span>],    </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">1</span>)  </span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># save to CSV</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(rows)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"overwatch_hero_stats.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each tier returns all 50 heroes in one request thus the entire collection takes about 7 seconds and produces all 350 rows.</p>
+<hr>
+</section>
+<section id="dataset-shape-overview" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-shape-overview">Dataset Shape Overview</h2>
+<pre><code>Shape: (350, 5)
+
+Columns:
+  hero         object
+  role         object
+  rank_tier    object
+  pick_rate    float64
+  win_rate     float64
+</code></pre>
+<section id="data-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="data-dictionary">Data Dictionary</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>hero</code></td>
+<td>string</td>
+<td>Hero name</td>
+</tr>
+<tr class="even">
+<td><code>role</code></td>
+<td>string</td>
+<td>Tank, DPS, or Support</td>
+</tr>
+<tr class="odd">
+<td><code>rank_tier</code></td>
+<td>string</td>
+<td>Bronze, Silver, Gold, Platinum, Diamond, Master, Grandmaster</td>
+</tr>
+<tr class="even">
+<td><code>pick_rate</code></td>
+<td>float</td>
+<td>Percentage of matches where the hero was chosen</td>
+</tr>
+<tr class="odd">
+<td><code>win_rate</code></td>
+<td>float</td>
+<td>Percentage of matches won</td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
 </section>
-<section id="experience" class="level1">
-<h1>Experience</h1>
-<section id="statistics-department-teaching-assistant" class="level2">
-<h2 class="anchored" data-anchor-id="statistics-department-teaching-assistant">Statistics Department — Teaching Assistant</h2>
-<p>Brigham Young University | Jan 2025 – Present</p>
+<section id="cleaning-and-transformations" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-and-transformations">Cleaning and Transformations</h2>
+<p>While some of the JSON was already clean I had to preform the given transformations:</p>
 <ul>
-<li>Assist students with probability, statistical modeling, and programming in R and Python<br>
-</li>
-<li>Provide one-on-one conceptual and coding support<br>
-</li>
-<li>Support course logistics using Canvas and BYU Learning Suite<br>
-</li>
-<li>Strengthened communication skills through technical instruction</li>
+<li><strong>Hero key -&gt; display name</strong> — The API returns names like <code>"wrecking-ball"</code> however to normlize these id conver it to<code>"Wrecking Ball"</code> using <code>.replace("-", " ").title()</code>.</li>
+<li><strong>Joining Two APIs</strong> — Since role data comes from <code>/heroes</code> and stats come from <code>/heroes/stats</code> I was forced to join them into one dataset.</li>
+<li><strong>Role and Rank capitalization</strong> — The API returns lowercase strings however some came in capitalized so to make sure they all matched I capalized them all.</li>
 </ul>
+<hr>
 </section>
-<section id="risk-management-department-technician" class="level2">
-<h2 class="anchored" data-anchor-id="risk-management-department-technician">Risk Management Department — Technician</h2>
-<p>Brigham Young University | Aug 2024 – Dec 2024</p>
+<section id="data-quality-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="data-quality-considerations">Data Quality Considerations</h2>
+<p><strong>No missing values</strong> — Luckily the API is well maintained and all the Heros have sufficent data so there were NaN placeholders to clear</p>
+<p><strong>Single snapshot</strong> — This dataset is not a live updating set. Therefore any predcitons made of this will not hold in different competive seasons as Heros are balanced and tweaked.</p>
+<p><strong>Region scope</strong> — Stats are pulled for the Americas region only. Pick and win rates can differ meaningfully between regions.</p>
+<p><strong>Representation bias</strong> — Since Grandmaster has far fewer placers than lower ranks averages may carry more variance.</p>
+<hr>
+</section>
+<section id="links-and-resources" class="level2">
+<h2 class="anchored" data-anchor-id="links-and-resources">Links and Resources</h2>
 <ul>
-<li>Inspected university laboratories for OSHA compliance<br>
-</li>
-<li>Conducted HAZCAT testing on unknown substances<br>
-</li>
-<li>Maintained detailed safety and compliance records<br>
-</li>
-<li>Demonstrated strong attention to detail and data accuracy</li>
+<li><strong>Requests API docs</strong>: <a href="https://pypi.org/project/requests/">Requests</a></li>
+<li><strong>Overwatch</strong>: <a href="https://overwatch.blizzard.com/en-us/">Overwatch</a></li>
+<li><strong>OverFast API docs</strong>: <a href="https://overfast-api.tekrop.fr">Overfast</a></li>
+<li><strong>GitHub repo (code + dataset)</strong>: <a href="https://github.com/mitchja23/data-acquisition-">overwatch-stats</a></li>
 </ul>
-</section>
-<section id="summit-nutritional-laboratories-physical-chemistry-qc-technician" class="level2">
-<h2 class="anchored" data-anchor-id="summit-nutritional-laboratories-physical-chemistry-qc-technician">Summit Nutritional Laboratories — Physical Chemistry QC Technician</h2>
-<p>Spanish Fork, UT | Dec 2022 – Sep 2023</p>
-<ul>
-<li>Performed quality control testing on nutraceutical products<br>
-</li>
-<li>Prepared samples for inductively coupled plasma (ICP) analysis<br>
-</li>
-<li>Followed strict laboratory protocols and documentation standards</li>
-</ul>
-</section>
-</section>
-<section id="research-projects" class="level1">
-<h1>Research &amp; Projects</h1>
-<section id="fabric-shrinkage-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="fabric-shrinkage-analysis">Fabric Shrinkage Analysis</h2>
-<ul>
-<li>Collected and analyzed experimental data across washing and drying cycles<br>
-</li>
-<li>Applied ANOVA and ANCOVA techniques in R<br>
-</li>
-<li>Produced data visualizations and statistical summaries</li>
-</ul>
-</section>
-<section id="kaggle-forest-cover-prediction" class="level2">
-<h2 class="anchored" data-anchor-id="kaggle-forest-cover-prediction">Kaggle Forest Cover Prediction</h2>
-<ul>
-<li>Built a machine learning pipeline in R to predict forest cover types<br>
-</li>
-<li>Performed feature engineering, preprocessing, and normalization<br>
-</li>
-<li>Developed and ensembled XGBoost, LightGBM, and Random Forest models<br>
-</li>
-<li>Achieved strong predictive performance on held-out test data</li>
-</ul>
-</section>
-<section id="yersina-ruckeri-pathogenesis-research" class="level2">
-<h2 class="anchored" data-anchor-id="yersina-ruckeri-pathogenesis-research"><em>Yersina ruckeri</em> Pathogenesis Research</h2>
-<ul>
-<li>Awarded an undergraduate award to research Y. <em>ruckeri</em> Pathogenesis.</li>
-<li>Studied and ran tests on whether the cdsAB operon and I-Cysteine uptake systems relate to pathogenesis</li>
-<li>Learned Microbiology lab techniques.</li>
-</ul>
-</section>
-</section>
-<section id="skills" class="level1">
-<h1>Skills</h1>
-<section id="programming" class="level2">
-<h2 class="anchored" data-anchor-id="programming">Programming</h2>
-<p>R, Python, SQL, Linux, C++</p>
-</section>
-<section id="data-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="data-visualization">Data Visualization</h2>
-<p>Tableau, ggplot2, Matplotlib</p>
-</section>
-<section id="statistical-methods" class="level2">
-<h2 class="anchored" data-anchor-id="statistical-methods">Statistical Methods</h2>
-<p>ANOVA, ANCOVA, Linear Regression, Hypothesis Testing, Predictive Modeling</p>
-</section>
-<section id="machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
-<p>Feature engineering, ensemble methods, text and time-series modeling</p>
-</section>
-<section id="laboratory-scientific-skills" class="level2">
-<h2 class="anchored" data-anchor-id="laboratory-scientific-skills">Laboratory &amp; Scientific Skills</h2>
-<p>Aseptic techniques, PCR, microbial analysis, scientific data management</p>
-</section>
-<section id="professional-skills" class="level2">
-<h2 class="anchored" data-anchor-id="professional-skills">Professional Skills</h2>
-<p>Technical communication, teamwork, analytical thinking, problem-solving</p>
-</section>
-</section>
-<section id="get-to-know-me" class="level1">
-<h1>Get to Know Me</h1>
-<p>Outside of statistics, I enjoy staying active and spending time outdoors, particularly through rock climbing and hiking. I am also passionate about music, playing both the viola and clarinet, and participate in ensembles at BYU. Additionally, I maintain an interest in current research in health and technology.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/headshot.jpg" class="img-fluid figure-img"></p>
-<figcaption>John Andelin, BYU Statistics student</figcaption>
-</figure>
-</div>
 
 
 </section>

@@ -3,7 +3,8 @@ project:
   output-dir: docs
 
 website:
-  title: "John's Portfolio"
+  title: "John's Data Science Portfolio"
+  description: "A showcase of my data sciene projects and learning journey"
   navbar:
     left:
       - href: index.qmd
@@ -12,6 +13,20 @@ website:
         text: About
       - href: Blog.qmd
         text: Blog
+      - text: "Projects"
+        menu:
+          - text: "All Projects"
+            href: projects/index.md
+          - text: "Final Project - Overview"
+            href: projects/final-project/index.qmd
+          - text: "Final Project - Technical Report" 
+            href: projects/final-project/report.qmd
+          - text: "Final Project - Tutorial"
+            href: projects/final-project/tutorial.qmd
+          - text: "Final Project - API Reference" 
+            href: projects/final-project/api.qmd
+          
+            
 
 format:
   html:
